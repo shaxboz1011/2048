@@ -662,7 +662,14 @@
             
             tryAgainBtn.addEventListener('click', () => {
                 startGame();
-                // Rewarded Popup
+                // Rewarded interstitial
+                show_9787890().then(() => {
+                    // You need to add your user reward function here, which will be executed after the user watches the ad.
+                    // For more details, please refer to the detailed instructions.
+                })
+            });
+            
+            restartBtn.addEventListener('click', () => {
                 show_9787890('pop').then(() => {
                     // user watch ad till the end or close it in interstitial format
                     // your code to reward user for rewarded format
@@ -670,10 +677,6 @@
                     // user get error during playing ad
                     // do nothing or whatever you want
                 })
-            });
-            
-            restartBtn.addEventListener('click', () => {
-                
                 startGame();
                 // In-App Interstitial
                 show_9787890({
@@ -691,16 +694,6 @@
             menuBtn.addEventListener('click', () => {
                 gameContainer.style.display = 'none';
                 menu.style.display = 'block';
-                
-                id = 6b80fcef70801d9ec1f4672bfa0323d4a3849517
-                var onError = () => {
-                   	 fetch('https://example.com/beacon/error/' + id)    
-                }
-                var onSuccess = () => {
-                   	 fetch('https://example.com/beacon/showed/' + id)
-                }
-                
-                p_adextra(onSuccess, onError)
             });
             
             document.addEventListener('keydown', (event) => {
