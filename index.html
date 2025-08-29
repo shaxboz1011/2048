@@ -335,6 +335,18 @@
             </div>
         </div>
     </div>
+    <script>
+        window.TelegramAdsController = new TelegramAdsController(); 
+            window.TelegramAdsController.initialize({  
+                pubId: "984706",
+                appId: "3517", 
+        });
+        window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
+            console.log(result);
+        }).catch((result) => {
+            console.log(result);
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -351,13 +363,19 @@
             const bestScoreElement = document.getElementById('best-score');
             const lastScoreElement = document.getElementById('last-score');
             const currentScoreElement = document.getElementById('current-score');
-            const AdController = window.Adsgram.init({ blockId: "14310" });
+            
             if (!window.loadOfferWallSDK) {
                 const script = document.createElement('script');
                 script.src = 'https://cdn.giga.pub/script/offer/loader/loader.js';
                 script.async = true;
                 document.head.appendChild(script);
               }
+
+            // window.TelegramAdsController = new TelegramAdsController(); 
+            // window.TelegramAdsController.initialize({  
+            //     pubId: "984706",
+            //     appId: "3517", 
+            // });
             
             // Game state
             let grid = [];
@@ -686,11 +704,7 @@
             });
             
             restartBtn.addEventListener('click', () => {
-                window.TelegramAdsController = new TelegramAdsController(); 
-                window.TelegramAdsController.initialize({  
-                    pubId: "984706",
-                    appId: "3517", 
-                });
+                
                 window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
                     console.log(result);
                 }).catch((result) => {
