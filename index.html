@@ -696,10 +696,10 @@
             
             restartBtn.addEventListener('click', () => {
                 startGame();                
-                window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
-                    console.log(result);
+                window.TelegramAdsController.triggerInterstitialBanner(true).then((result) => {
+                    alert(result);
                 }).catch((result) => {
-                    console.log(result);
+                    alert(result);
                 });
 
             });
@@ -707,6 +707,7 @@
             menuBtn.addEventListener('click', () => {
                 gameContainer.style.display = 'none';
                 menu.style.display = 'block';
+                // Show GIGA ADS
                 window.showGiga()
                   .then(() => {
                     // Your reward logic here
