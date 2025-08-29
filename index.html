@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.giga.pub/script/offer/loader/loader.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
+    <!-- Giga.Pub Ads -->
+    <script src="https://cdn.giga.pub/script/offer/loader/loader.js"></script>
     <script src="https://ad.gigapub.tech/script?id=2417"></script>
-    <!-- Yandex.RTB -->
-    <script>window.yaContextCb=window.yaContextCb||[]</script>
-    <script src="https://yandex.ru/ads/system/context.js" async></script>
-    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
     <!-- RichAds -->
     <script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>
     <script src='//libtl.com/sdk.js' data-zone='9787890' data-sdk='show_9787890'></script>
@@ -367,6 +364,11 @@
                 pubId: "984706",
                 appId: "3517", 
             });
+            window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
+                console.log(result);
+            }).catch((result) => {
+                console.log(result);
+            });
 
             // Game state
             let grid = [];
@@ -695,18 +697,10 @@
             });
             
             restartBtn.addEventListener('click', () => {
-                startGame();                
-                window.TelegramAdsController.triggerInterstitialBanner(true).then((result) => {
-                    alert(result);
-                }).catch((result) => {
-                    alert(result);
-                });
-
+                startGame();            
             });
             
             menuBtn.addEventListener('click', () => {
-                gameContainer.style.display = 'none';
-                menu.style.display = 'block';
                 // Show GIGA ADS
                 window.showGiga()
                   .then(() => {
@@ -715,6 +709,8 @@
                   .catch(e => {
                     // Handle errors here
                   });
+                gameContainer.style.display = 'none';
+                menu.style.display = 'block';
             });
             
             document.addEventListener('keydown', (event) => {
