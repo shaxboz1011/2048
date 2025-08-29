@@ -270,7 +270,16 @@
     </style>
 </head>
 <body>
+    <!-- Yandex.RTB R-A-17015266-1 -->
     <div id="yandex_rtb_R-A-17015266-1"></div>
+    <script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            "blockId": "R-A-17015266-1",
+            "renderTo": "yandex_rtb_R-A-17015266-1"
+        })
+    })
+    </script>
     <div class="container">
         <header>
             <h1>2048</h1>
@@ -302,6 +311,16 @@
         
         <div class="game-container" id="game-container">
             <div class="game-header">
+                <!-- Yandex.RTB R-A-17015266-1 -->
+                <div id="yandex_rtb_R-A-17015266-1"></div>
+                <script>
+                window.yaContextCb.push(() => {
+                    Ya.Context.AdvManager.render({
+                        "blockId": "R-A-17015266-1",
+                        "renderTo": "yandex_rtb_R-A-17015266-1"
+                    })
+                })
+                </script>
                 <div class="game-title">2048</div>
                 <div class="current-score">Score: <span id="current-score">0</span></div>
             </div>
@@ -675,12 +694,6 @@
             });
             
             restartBtn.addEventListener('click', () => {
-                window.yaContextCb.push(() => {
-                    Ya.Context.AdvManager.render({
-                        "blockId": "R-A-17015266-1",
-                        "renderTo": "yandex_rtb_R-A-17015266-1"
-                    })
-                }
                 startGame();
                 // In-App Interstitial
                 
