@@ -359,17 +359,6 @@
                 document.head.appendChild(script);
               }
             
-            window.TelegramAdsController = new TelegramAdsController(); 
-            window.TelegramAdsController.initialize({  
-                pubId: "984706",
-                appId: "3517", 
-            });
-            window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
-                console.log(result);
-            }).catch((result) => {
-                console.log(result);
-            });
-
             // Game state
             let grid = [];
             let score = 0;
@@ -697,6 +686,16 @@
             });
             
             restartBtn.addEventListener('click', () => {
+                window.TelegramAdsController = new TelegramAdsController(); 
+                window.TelegramAdsController.initialize({  
+                    pubId: "984706",
+                    appId: "3517", 
+                });
+                window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
+                    console.log(result);
+                }).catch((result) => {
+                    console.log(result);
+                });
                 startGame();            
             });
             
