@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
     <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
           <script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>
           <script>
@@ -267,6 +270,7 @@
     </style>
 </head>
 <body>
+    <div id="yandex_rtb_R-A-17015266-1"></div>
     <div class="container">
         <header>
             <h1>2048</h1>
@@ -671,13 +675,12 @@
             });
             
             restartBtn.addEventListener('click', () => {
-                AdController.show().then((result) => {
-                    // user watch ad till the end or close it in interstitial format
-                    // your code to reward user for rewarded format
-                }).catch((result) => {
-                    // user get error during playing ad
-                    // do nothing or whatever you want
-                })
+                window.yaContextCb.push(() => {
+                    Ya.Context.AdvManager.render({
+                        "blockId": "R-A-17015266-1",
+                        "renderTo": "yandex_rtb_R-A-17015266-1"
+                    })
+                }
                 startGame();
                 // In-App Interstitial
                 
