@@ -343,6 +343,7 @@
             const bestScoreElement = document.getElementById('best-score');
             const lastScoreElement = document.getElementById('last-score');
             const currentScoreElement = document.getElementById('current-score');
+            const AdController = window.Adsgram.init({ blockId: "14310" });
             
             // Game state
             let grid = [];
@@ -679,16 +680,7 @@
                 })
                 startGame();
                 // In-App Interstitial
-                show_9787890({
-                  type: 'inApp',
-                  inAppSettings: {
-                    frequency: 2,
-                    capping: 0.1,
-                    interval: 30,
-                    timeout: 5,
-                    everyPage: false
-                  }
-                })
+                
             });
             
             menuBtn.addEventListener('click', () => {
