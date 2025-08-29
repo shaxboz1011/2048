@@ -308,15 +308,6 @@
         
         <div class="game-container" id="game-container">
             <div class="game-header">
-                <!-- Yandex.RTB R-A-17015266-1 -->
-                <div id="yandex_rtb_R-A-17015266-1"></div>
-                <script>
-                window.yaContextCb.push(() => {
-                    Ya.Context.AdvManager.render({
-                        "blockId": "R-A-17015266-1",
-                        "renderTo": "yandex_rtb_R-A-17015266-1"
-                    })
-                })
                 </script>
                 <div class="game-title">2048</div>
                 <div class="current-score">Score: <span id="current-score">0</span></div>
@@ -697,22 +688,23 @@
             tryAgainBtn.addEventListener('click', () => {
                 startGame();
                 // Rewarded interstitial
-                show_9787890().then(() => {
-                    // You need to add your user reward function here, which will be executed after the user watches the ad.
-                    // For more details, please refer to the detailed instructions.
-                })
+                window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
+                    console.log(result);
+                }).catch((result) => {
+                    console.log(result);
+                });
             });
             
             restartBtn.addEventListener('click', () => {
                 startGame();
                 // In-App Interstitial
-                window.showGiga()
-                  .then(() => {
-                    // Your reward logic here
-                  })
-                  .catch(e => {
-                    // Handle errors here
-                  });
+                // window.showGiga()
+                //   .then(() => {
+                //     // Your reward logic here
+                //   })
+                //   .catch(e => {
+                //     // Handle errors here
+                //   });
                 
                 window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
                     console.log(result);
@@ -725,10 +717,13 @@
             menuBtn.addEventListener('click', () => {
                 gameContainer.style.display = 'none';
                 menu.style.display = 'block';
-                show_9787890().then(() => {
-                    // You need to add your user reward function here, which will be executed after the user watches the ad.
-                    // For more details, please refer to the detailed instructions.
-                })
+                window.showGiga()
+                  .then(() => {
+                    // Your reward logic here
+                  })
+                  .catch(e => {
+                    // Handle errors here
+                  });
             });
             
             document.addEventListener('keydown', (event) => {
