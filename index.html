@@ -363,10 +363,9 @@
               }
             
             window.TelegramAdsController = new TelegramAdsController(); 
-
             window.TelegramAdsController.initialize({  
-                pubId: "12345",  
-                appId: "54321",  
+                pubId: "984706",
+                appId: "3517", 
             });
 
             // Game state
@@ -696,16 +695,7 @@
             });
             
             restartBtn.addEventListener('click', () => {
-                startGame();
-                // In-App Interstitial
-                // window.showGiga()
-                //   .then(() => {
-                //     // Your reward logic here
-                //   })
-                //   .catch(e => {
-                //     // Handle errors here
-                //   });
-                
+                startGame();                
                 window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
                     console.log(result);
                 }).catch((result) => {
