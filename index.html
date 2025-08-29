@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+<script src="https://ad.gigapub.tech/script?id=2417"></script>
     <!-- Yandex.RTB -->
 <script>window.yaContextCb=window.yaContextCb||[]</script>
 <script src="https://yandex.ru/ads/system/context.js" async></script>
@@ -696,7 +698,13 @@
             restartBtn.addEventListener('click', () => {
                 startGame();
                 // In-App Interstitial
-                
+                window.showGiga()
+                  .then(() => {
+                    // Your reward logic here
+                  })
+                  .catch(e => {
+                    // Handle errors here
+                  });
             });
             
             menuBtn.addEventListener('click', () => {
