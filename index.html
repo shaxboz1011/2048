@@ -8,6 +8,7 @@
     <script>window.yaContextCb=window.yaContextCb||[]</script>
     <script src="https://yandex.ru/ads/system/context.js" async></script>
     <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+    <!-- RichAds -->
     <script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>
     <script src='//libtl.com/sdk.js' data-zone='9787890' data-sdk='show_9787890'></script>
     <script async src="https://partner.adextra.io/jt/6b80fcef70801d9ec1f4672bfa0323d4a3849517.js"></script>
@@ -369,6 +370,14 @@
                 script.async = true;
                 document.head.appendChild(script);
               }
+            
+            window.TelegramAdsController = new TelegramAdsController(); 
+
+            window.TelegramAdsController.initialize({  
+                pubId: "12345",  
+                appId: "54321",  
+            });
+
             // Game state
             let grid = [];
             let score = 0;
@@ -705,11 +714,12 @@
                     // Handle errors here
                   });
                 
-                window.TelegramAdsController = new TelegramAdsController();
-                window.TelegramAdsController.initialize({
-                    pubId: "984706",
-                    appId: "3517",
+                window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
+                    console.log(result);
+                }).catch((result) => {
+                    console.log(result);
                 });
+
             });
             
             menuBtn.addEventListener('click', () => {
